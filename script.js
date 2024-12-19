@@ -11,7 +11,7 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-    return a !== 0 ? a / b : "ERR";
+    return b !== 0 ? a / b : "ERR";
 }
 
 function operate(num1, num2, operator) {

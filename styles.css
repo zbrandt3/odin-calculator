@@ -1,3 +1,36 @@
-h1 {
-    text-align: center;
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.calculator {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 500px;
+    width: 500px;
+    
+}
+
+button {
+    margin: 1px;
+}
+
+.calculator-row {
+    display: flex;
+    height: 100px;
+    justify-content: space-around;
+}
+
+.display-row {
+    height: 100px;
+    justify-items: right;
+}
+
+.numkey, .operator-key {
+    width: 100px;
+}
+
+#zero {
+    width: 225px;
 }
