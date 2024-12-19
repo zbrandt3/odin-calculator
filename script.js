@@ -19,9 +19,14 @@ clearBtn.addEventListener("click", ()=> {
 })
 
 function operatorClick() {
-    val1 = display.innerText;
-    operator = this.innerText;
-    console.log(val1, operator);
+    if(operator === "") {
+        val1 = display.innerText;
+        operator = this.innerText;
+        console.log(val1, operator);
+    } else {
+        display.innerText = operate(val1, display.innerText, operator);
+        operator = this.innerText;
+    }
 
 }
 
