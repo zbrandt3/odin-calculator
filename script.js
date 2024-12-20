@@ -3,6 +3,7 @@ const operatorKeys = document.querySelectorAll(".operator-key");
 const display = document.querySelector(".display");
 const clearBtn = document.querySelector("#clear");
 let operator = "";
+let storedOperator = "";
 let val1 = ""; 
 let val2 = "";
 
@@ -19,12 +20,13 @@ clearBtn.addEventListener("click", ()=> {
 })
 
 function operatorClick() {
-    if(operator === "") {
+    if(storedOperator == "") {
         val1 = display.innerText;
         operator = this.innerText;
         console.log(val1, operator);
     } else {
-        display.innerText = operate(val1, display.innerText, operator);
+        console.log("else");
+        display.innerText = operate(val1, display.innerText, storedOperator);
         operator = this.innerText;
     }
 
@@ -40,6 +42,7 @@ function numClick() {
     }
 
     if(operator !== "") {
+        storedOperator = operator;
         operator = "";
         display.innerText="";
         display.innerText += this.innerText;
@@ -51,18 +54,19 @@ function add(a, b) {
 }
 
 function subtract(a, b) {
-    return a - b;
+    return Number(a) - Number(b);
 }
 
 function multiply(a, b) {
-    return a * b;
+    return Number(a) * Number(b);
 }
 
 function divide(a, b) {
-    return b !== 0 ? a / b : "ERR";
+    return b !== 0 ? Number(a) / Number(b) : "ERR";
 }
 
 function operate(num1, num2, operator) {
+    console.log("operating")
     if(operator === "+") { return add(num1, num2) }
     if(operator === "-") { return subtract(num1, num2) }
     if(operator === "*") { return multiply(num1, num2) }
